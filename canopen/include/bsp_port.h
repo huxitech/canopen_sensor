@@ -62,16 +62,4 @@ uint8_t bsp_setTimer(unsigned long long val);
  */
 unsigned long long  bsp_getTimer(void);
 
-
-/**
- * @brief Send a CAN message to stack
- * @param cob_id  the cobid
- * @param data data
- * @param len data len
- * @return 0 if succes
- */
-uint8_t bsp_CanWrite(uint32_t cob_id,uint8_t*data,uint8_t len);
-
-
-
 #endif

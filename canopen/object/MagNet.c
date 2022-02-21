@@ -148,7 +148,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     UNS32 MagNet_obj1016[]={0};
 
 /* index 0x1017 :   Producer Heartbeat Time. */
-                    UNS16 MagNet_obj1017 = 0x0;	/* 0 */
+                    UNS16 MagNet_obj1017 = 0;	/* 0 */
                     subindex MagNet_Index1017[] = 
                      {
                        { RW, uint16, sizeof (UNS16), (void*)&MagNet_obj1017, NULL }
