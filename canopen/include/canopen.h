@@ -29,7 +29,7 @@ uint8_t canopen_ODWrite(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t 
  * @param len data len
  * @return 0 if succes
  */
-uint8_t canopen_ODRead(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t *len);
+uint8_t canopen_ODRead(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t *len,uint8_t* data_type);
 
 /**
  * @brief the timer dispatch
