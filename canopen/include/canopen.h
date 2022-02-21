@@ -21,6 +21,15 @@ uint8_t canopen_Init(uint8_t node_id,uint32_t baud);
  */
 uint8_t canopen_ODWrite(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t len);
 
+/**
+ * @brief object dict get
+ * @param wIndex index
+ * @param bSubindex subindex
+ * @param data data
+ * @param len data len
+ * @return 0 if succes
+ */
+uint8_t canopen_ODRead(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t *len);
 
 /**
  * @brief the timer dispatch
