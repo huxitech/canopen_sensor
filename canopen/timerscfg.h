@@ -23,12 +23,14 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #ifndef __TIMERSCFG_H__
 #define __TIMERSCFG_H__
 
-/* Time unit : ns */
-/* Time resolution : 64bit (~585 years) */
-#define TIMEVAL unsigned long long
-#define TIMEVAL_MAX ~(TIMEVAL)0
-#define MS_TO_TIMEVAL(ms) ms*1000000L
-#define US_TO_TIMEVAL(us) us*1000L
+#define TIMEVAL UNS32
+
+// using 16 bits timer
+#define TIMEVAL_MAX 0xFFFF
+
+// The timer is incrementing every 10 us.
+#define MS_TO_TIMEVAL(ms) ((ms) * 100)
+#define US_TO_TIMEVAL(us) ((us) / 10)
 
 #define TASK_HANDLE void*
 
