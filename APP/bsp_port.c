@@ -183,8 +183,8 @@ uint8_t bsp_TimerOpen(void){
 	NVIC_Init(&NVIC_InitStructure);
 
 	/* Compute the prescaler value */
-	/* SystemCoreClock variable holds HCLK frequency and is defined in system_stm32f37x.c file */
-	uint16_t PrescalerValue = (uint16_t) (SystemCoreClock  / 100000) - 1;
+	/* TIM3 TICK = 84M  Set  1 TICK = 10us */
+	uint16_t PrescalerValue = (uint16_t) (SystemCoreClock   / 50000) - 1;
 
 	/* Time base configuration */
 	TIM_TimeBaseStructure.TIM_Period = 65535;
