@@ -23,14 +23,19 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #ifndef __TIMERSCFG_H__
 #define __TIMERSCFG_H__
 
+#ifndef MIN
+	#define MIN(a,b)  ((a)<(b) ? (a) : (b))
+#endif
+// Whatever your microcontroller, the timer wont work if
+// TIMEVAL is not at least on 32 bits
 #define TIMEVAL UNS32
 
 // using 16 bits timer
-#define TIMEVAL_MAX 0xFFFF
+#define TIMEVAL_MAX 0xFFFF   
 
-// The timer is incrementing every 10 us.
-#define MS_TO_TIMEVAL(ms) ((ms) * 100)
-#define US_TO_TIMEVAL(us) ((us) / 10)
+//这里一个TICK=100us,无法做到10us精度，这里按照100us来设置
+#define MS_TO_TIMEVAL(ms) MIN((ms*10),TIMEVAL_MAX) 
+#define US_TO_TIMEVAL(us) MIN((us),TIMEVAL_MAX) 
 
 #define TASK_HANDLE void*
 
