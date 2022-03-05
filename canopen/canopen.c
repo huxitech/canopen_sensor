@@ -32,17 +32,17 @@ uint8_t canopen_Init(uint8_t node_id,uint32_t baud){
  * @param len data len
  * @return 0 if succes
  */
-uint8_t canopen_ODWrite(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t len){
+uint32_t canopen_ODWrite(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t len){
 	
 
-	writeLocalDict( 
+	return writeLocalDict( 
 					&CANOPEN_CO_DATA,       /*CO_Data* d*/
 					wIndex,                 /*UNS16 index*/
 					bSubindex,                   /*UNS8 subind*/ 
 					data,            /*void * pSourceData,*/ 
 					(UNS32*)len,                  /* UNS8 * pExpectedSize*/
 					0);                    /* UNS8 checkAccess */
-	return 1;
+
 }
 
 /**
@@ -53,8 +53,8 @@ uint8_t canopen_ODWrite(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t 
  * @param len data len
  * @return 0 if succes
  */
-uint8_t canopen_ODRead(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t *len,uint8_t* data_type){
-	readLocalDict( 
+uint32_t canopen_ODRead(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t *len,uint8_t* data_type){
+	return readLocalDict( 
 					&CANOPEN_CO_DATA,       /*CO_Data* d*/
 					wIndex,                 /*UNS16 index*/
 					bSubindex,                   /*UNS8 subind*/ 
@@ -62,7 +62,7 @@ uint8_t canopen_ODRead(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t *
 					(UNS32*)len,                  /* UNS8 * pExpectedSize*/
 					(char*)data_type,
 					0);                    /* UNS8 checkAccess */	
-	return 0;
+
 }
 
 /**
