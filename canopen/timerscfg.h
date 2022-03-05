@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 //这里一个TICK=100us,无法做到10us精度，这里按照100us来设置
 #define MS_TO_TIMEVAL(ms) MIN((ms*10),TIMEVAL_MAX) 
-#define US_TO_TIMEVAL(us) MIN((us),TIMEVAL_MAX) 
+#define US_TO_TIMEVAL(us) MIN((us/100),TIMEVAL_MAX) 
 
 #define TASK_HANDLE void*
 
