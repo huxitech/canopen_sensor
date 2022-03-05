@@ -40,7 +40,7 @@ uint32_t canopen_ODWrite(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t
 					wIndex,                 /*UNS16 index*/
 					bSubindex,                   /*UNS8 subind*/ 
 					data,            /*void * pSourceData,*/ 
-					(UNS32*)len,                  /* UNS8 * pExpectedSize*/
+					(UNS32*)&len,                  /* UNS8 * pExpectedSize*/
 					0);                    /* UNS8 checkAccess */
 
 }
@@ -59,7 +59,7 @@ uint32_t canopen_ODRead(uint16_t wIndex,uint8_t bSubindex, uint8_t*data,uint8_t 
 					wIndex,                 /*UNS16 index*/
 					bSubindex,                   /*UNS8 subind*/ 
 					data,            /*void * pSourceData,*/ 
-					(UNS32*)len,                  /* UNS8 * pExpectedSize*/
+					(UNS32*)&len,                  /* UNS8 * pExpectedSize*/
 					(char*)data_type,
 					0);                    /* UNS8 checkAccess */	
 
