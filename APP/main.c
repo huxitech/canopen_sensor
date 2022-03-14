@@ -6,7 +6,8 @@ int main(){
 	//SCB->VTOR = FLASH_BASE | 0x10000;
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
   delay_init(168);   
-	canopen_Init(3,250000);
+	//node=3  baud=250K  tick=100us
+	canopen_Init(3,250000,100);
 	
 	LED_Init();
 	while(1)
