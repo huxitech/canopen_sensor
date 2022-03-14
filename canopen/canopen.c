@@ -7,14 +7,12 @@ extern TIMEVAL last_counter_val;
 extern TIMEVAL elapsed_time ;
 extern CO_Data *co_data;
 
-static uint32_t _tick_time = 10; //default 10us
+uint32_t _tick_time = 10; //default 10us
+uint32_t _timer_period = 0xFFFF; //default 65535
+
 
 #define CANOPEN_CO_DATA MagNet_Data
 
-
-uint32_t TickTime(void){
-	return _tick_time;
-}
 
 /**
  * @brief stack init
@@ -22,8 +20,9 @@ uint32_t TickTime(void){
  * @param baud baud
  * @return 0 if succes
  */
-uint8_t canopen_Init(uint8_t node_id,uint32_t baud,uint32_t tick_time){
-	_tick_time = tick_time;
+uint8_t canopen_Init(uint8_t node_id,uint32_t baud,uint32_t tick_time,uint32_t timer_period){
+  _tick_time = tick_time;
+  _timer_period = timer_period;
   initTimer(); 
   canInit(&CANOPEN_CO_DATA,baud);
   setNodeId (&CANOPEN_CO_DATA, node_id);

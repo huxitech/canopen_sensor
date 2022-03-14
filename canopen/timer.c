@@ -38,7 +38,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 /*  ---------  The timer table --------- */
 s_timer_entry timers[MAX_NB_TIMER] = {{TIMER_FREE, NULL, NULL, 0, 0, 0},};
 
-TIMEVAL total_sleep_time = TIMEVAL_MAX;
+TIMEVAL total_sleep_time = 65535;//TIMEVAL_MAX;
 TIMER_HANDLE last_timer_raw = -1;
 
 #define min_val(a,b) ((a<b)?a:b)

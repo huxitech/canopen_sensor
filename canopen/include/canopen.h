@@ -31,9 +31,10 @@
  * @param node_id node_id
  * @param baud baud
  * @param tick_time tick for us 
+ * @param max_tick_count the period  for timer
  * @return 0 if succes
  */
-uint8_t canopen_Init(uint8_t node_id,uint32_t baud,uint32_t tick_time);
+uint8_t canopen_Init(uint8_t node_id,uint32_t baud,uint32_t tick_time,uint32_t timer_period);
 
 /**
  * @brief object dict set

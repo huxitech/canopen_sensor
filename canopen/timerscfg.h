@@ -31,14 +31,15 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 // TIMEVAL is not at least on 32 bits
 #define TIMEVAL UNS32
 
-extern uint32_t TickTime(void);
+extern uint32_t _tick_time; //default 10us
+extern uint32_t _timer_period; //default 65535
 
-// using 16 bits timer
-#define TIMEVAL_MAX 0xFFFF   
 
-//这里一个TICK=100us,无法做到10us精度，这里按照100us来设置
-#define MS_TO_TIMEVAL(ms) MIN((ms*1000/TickTime()),TIMEVAL_MAX) 
-#define US_TO_TIMEVAL(us) MIN((us/TickTime()),TIMEVAL_MAX) 
+#define TIMEVAL_MAX _timer_period   
+
+
+#define MS_TO_TIMEVAL(ms) MIN((ms*1000/_tick_time),TIMEVAL_MAX) 
+#define US_TO_TIMEVAL(us) MIN((us/_tick_time),TIMEVAL_MAX) 
 
 #define TASK_HANDLE void*
 
