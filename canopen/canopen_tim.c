@@ -9,7 +9,6 @@ TIMEVAL last_counter_val = 0;
 TIMEVAL elapsed_time = 0;
 CO_Data *co_data = NULL;
 
-extern uint32_t TickTime(void);
 
 // Initializes the timer, turn on the interrupt and put the interrupt time to zero
 void initTimer(void)
@@ -22,8 +21,8 @@ void setTimer(TIMEVAL value)
 {
   uint32_t timer = bsp_getTimer();        // Copy the value of the running timer
 	elapsed_time += timer - last_counter_val;
-	last_counter_val = TickTime()-value;
-	bsp_setTimer(TickTime()-value);
+	last_counter_val = TIMEVAL_MAX-value;
+	bsp_setTimer(last_counter_val);
 	bsp_TimerEnable(1);
 	//printf("setTimer %lu, elapsed %lu\r\n", value, elapsed_time);
 }
@@ -33,7 +32,7 @@ TIMEVAL getElapsedTime(void)
 {
   	uint32_t timer = bsp_getTimer();        // Copy the value of the running timer
 	if(timer < last_counter_val)
-		timer += TickTime();
+		timer += TIMEVAL_MAX;
 	TIMEVAL elapsed = timer - last_counter_val + elapsed_time;
 	//printf("elapsed %lu - %lu %lu %lu\r\n", elapsed, timer, last_counter_val, elapsed_time);
 	return elapsed;

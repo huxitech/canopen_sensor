@@ -33,10 +33,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 extern uint32_t TickTime(void);
 
-// using 16 bits timer
-#define TIMEVAL_MAX 0xFFFF   
+// using 32 bits timer
+#define TIMEVAL_MAX 0xFFFFFFFF   
 
-//这里一个TICK=100us,无法做到10us精度，这里按照100us来设置
+
 #define MS_TO_TIMEVAL(ms) MIN((ms*1000/TickTime()),TIMEVAL_MAX) 
 #define US_TO_TIMEVAL(us) MIN((us/TickTime()),TIMEVAL_MAX) 
 

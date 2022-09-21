@@ -1,1 +1,1 @@
-基于canfestival的STM32F4移植lib,针对磁条导航传感器
+基于canfestival的M4移植lib,针对磁条导航传感器

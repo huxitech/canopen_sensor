@@ -30,7 +30,7 @@
  * @brief stack init
  * @param node_id node_id
  * @param baud baud
- * @param tick_time tick for us 
+ * @param tick_time The timer increases 1 count. How long does it take us.
  * @return 0 if succes
  */
 uint8_t canopen_Init(uint8_t node_id,uint32_t baud,uint32_t tick_time);
