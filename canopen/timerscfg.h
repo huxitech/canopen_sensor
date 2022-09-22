@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #endif
 // Whatever your microcontroller, the timer wont work if
 // TIMEVAL is not at least on 32 bits
-#define TIMEVAL UNS32
+#define TIMEVAL UNS64
 
 extern uint32_t TickTime(void);
 
